@@ -523,7 +523,6 @@ fn addExamples(
 ) !*std.Build.Step {
     const all = b.step(module, "All " ++ module ++ " examples");
     const module_subpath = b.pathJoin(&.{ "examples", module });
-
     var dir = try std.Io.Dir.cwd().openDir(b.graph.io, b.pathFromRoot(module_subpath), .{ .iterate = true });
     defer dir.close(b.graph.io);
 
